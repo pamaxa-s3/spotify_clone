@@ -1,8 +1,14 @@
+import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header/Header";
 import ListItem from "@/components/ListItem/ListItem";
 import React from "react";
+import PageContent from "./components/PageContent";
 
-const Home = () => {
+export const revalidate = 0;
+
+const Home = async () => {
+  const songs = await getSongs();
+
   return (
     <div
       className="
@@ -29,7 +35,9 @@ const Home = () => {
         <div className="flex justify-between items-center">
           <h3 className="text-white text-2xl font-semibold">Newest songs</h3>
         </div>
-        <div className="">List of Songs!</div>
+        <div className="">
+          <PageContent songs={songs} />
+        </div>
       </div>
     </div>
   );

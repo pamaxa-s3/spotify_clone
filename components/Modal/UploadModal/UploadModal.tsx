@@ -61,7 +61,7 @@ const UploadModal = () => {
 			const {
 				data: songData,
 				error: songError
-			} = await supabaseClient.storage.from('song').upload(`song-${values.title}-${uniqueID}`, songFile, {
+			} = await supabaseClient.storage.from('songs').upload(`song-${values.title}-${uniqueID}`, songFile, {
 				cacheControl: '3600',
 				upsert: false
 			});
